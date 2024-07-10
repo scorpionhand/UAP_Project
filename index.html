@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>UAP Sightings</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+  <!-- D3 JavaScript -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+   <!-- Leaflet JS -->
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+   crossorigin=""></script>
+
+   <!-- Remove icon error -->
+   <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+
+</head>
+
+<body>
+
+<!-- Document Head -->
+<div class="container top">
+  <!--<div class="row">-->
+    <div class="col-md-12 p-5 text-center bg-light">
+      <img src="Images/TITLE.jpg">
+      <p></p>
+      <h1>Sightings Report</h1>
+      Explore the map below of the UAP sightings dataset
+    </div>
+  <!--</div>-->
+</div>
+  
+<!-- The div that holds our map -->
+<div class="container" id="map"></div>
+ 
+<!-- Map analysis results -->
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="card card-body bg-light">
+        <h6>UAP Shape Filter:</h6>
+        <select id="selDataset" onchange="setShape(this.value)"></select>
+      </div>
+      <div class="card card-body bg-light">
+        <h6>Show Starbucks?</h6>
+        <select id="showStarbucks" onchange="setStarbucks(this.value)">
+          <option>Yes</option>
+          <option selected="selected">No</option>
+        </select>
+      </div>
+      <p></p>
+      <div class="card card-body bg-light">
+        <h6>Light Pollution Map</h6>
+        <select id="lightSwitch" onchange="switchLights(this.value)">
+          <option>On</option>
+          <option selected="selected">Off</option>
+        </select>
+      </div>
+
+      <div class="card card-body bg-light">
+        <!--<div class="card-header">-->
+          <h4 class="card-title" id="SightingHeader">Sighting Info</h4>
+        <!--</div> class="card-body"-->
+        <div id="sample-metadata"></div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="card card-body bg-light">
+      <div class="slidecontainer">
+        <h6><b>Filter Years:</b> Showing UAP Reports up to year: <span id="yearValue"></span></h6>
+        <input type="range" min="1900" max="2024" value="2024" id="slidecontainer" onchange="setDate(this.value)">
+      </div>
+      <div class="slidecontainer">
+        <h6><b>Filter Years:</b> Showing UAP Reports after year: <span id="yearValue2"></span></h6>
+        <input type="range" min="1900" max="2024" value="1900" id="slidecontainer2" onchange="setDate(this.value)">
+      </div>
+      <script>
+        var slider = document.getElementById("slidecontainer");
+        var output = document.getElementById("yearValue");
+        output.innerHTML = slider.value;
+        
+        var slider2 = document.getElementById("slidecontainer2");
+        var output2 = document.getElementById("yearValue2");
+        output2.innerHTML = slider2.value;
+
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+
+        slider2.oninput = function() {
+          output2.innerHTML = this.value;
+        }
+      </script>
+    </div>
+
+    <div class="card card-body bg-light">
+      <p>
+        <h6>Note about viewing objects in the sky and their altitude:</h6> 
+        <ul>
+          <li>The formula to calculate how far a person can see an object from a 
+            higher altitude is the square root of the altitude multiplied by 1.225.
+          </li>
+          <li>
+            At the maximum viewing distance, the object would appear to be on the horizon to the viewer.
+          </li>
+          <li>
+            Commercial planes fly between 35,000 and 43,000 feet.
+          </li>
+          <li>
+            One degree of latitude is about 69 miles. This is a spherical value and will stay consistent with view angle calculations
+          </li>
+          <li>
+            One degree of longitude can be tricky because it is based on vertical slices and the longitude viewing distance 
+            will change depending on the latitude location.
+          </li>
+          <li>
+            Therefore, exact earth longitude and latitude viewing coordinates do not directly correlate to the UAP location
+          </li>
+        </ul>
+        <img src="Images/View_angle.png">
+    </div>
+  </div>
+
+  <!-- bottom of page spacer -->
+  <div class="row">
+    <div class="col-md-12">
+      <div id="bubble"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- All custom functions here -->
+<script type="text/javascript" src="static/js/logic.js"></script>
+
+</body>
+
+</html>

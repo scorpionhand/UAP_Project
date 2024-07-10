@@ -1,0 +1,54 @@
+body {
+  padding: 0;
+  margin: 0;
+  /*background-color: #222222;*/
+}
+
+body,
+html {
+  height: 100%;
+}
+
+#slidecontainer,
+#slidecontainer2{
+  width: 100%
+}
+
+
+#map {
+  width: 1400px;
+  height: 500px;
+  padding: 20px;
+}
+
+#bubble{
+  height: 50px;
+}
+
+.legend{
+  background-color: white;
+  width: 30%;
+  height: 450px;
+  overflow-y:auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+img {
+  border-radius: 8px;
+  width: 60%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card {
+  margin-top: 20px;
+}
+
+.container {
+  border-radius: 10px;
+}
+
+.top {
+  padding: 20px;
+}
