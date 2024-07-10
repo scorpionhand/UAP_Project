@@ -261,11 +261,7 @@ dataset.then(function (data) {
             shapeColor = '#00FF00'
         } else {
             markerRadius = 1
-            if(lightSwitch == 'Off'){
-                shapeColor = '#FFFF00'
-            }else{
-                shapeColor = '#00FFFF'
-            }
+            shapeColor = '#00FFFF'
             markersOnMap += 1
         }
         return true
