@@ -1,5 +1,5 @@
 // URL for the GeoJSON UAP data
-let url = "../UAP_Data/uap_data_output.geojson";
+let url = "UAP_Data/uap_data_output.geojson";
 
 // Globals 
 let dataset = d3.json(url)
