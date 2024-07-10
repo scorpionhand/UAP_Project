@@ -34,7 +34,7 @@ var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/a
 	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	ext: 'png'
 });
-Stadia_AlidadeSmoothDark.addTo(uap_map);
+Stadia_AlidadeSmoothDark;
 
 // Tile layer for the city lights
 let VIIRS_CityLights_2012 = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
@@ -45,7 +45,7 @@ let VIIRS_CityLights_2012 = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmt
     format: 'jpg',
     time: '',
     tilematrixset: 'GoogleMapsCompatible_Level'
-});
+}).addTo(uap_map);
 
 // Shape list
 let shapes = [
