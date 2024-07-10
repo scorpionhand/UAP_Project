@@ -28,6 +28,8 @@ let uap_map = L.map("map", {
 });
 
 // Add the tile layer to the map
+// removed amp due to api restrictions
+/*
 var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
 	minZoom: 0,
 	maxZoom: 20,
@@ -35,6 +37,8 @@ var Stadia_AlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/a
 	ext: 'png'
 });
 Stadia_AlidadeSmoothDark;
+*/
+
 
 // Tile layer for the city lights
 let VIIRS_CityLights_2012 = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
@@ -314,6 +318,7 @@ dataset.then(function (data) {
         add_legend(uap_map, 1)
     });
 
+    /* removed map switch due to api restrictions
     if(lightSwitch == 'Off'){
         VIIRS_CityLights_2012.remove();
         Stadia_AlidadeSmoothDark.addTo(uap_map);
@@ -321,6 +326,7 @@ dataset.then(function (data) {
         Stadia_AlidadeSmoothDark.remove();
         VIIRS_CityLights_2012.addTo(uap_map);
     }
+    */
  }
 
 
