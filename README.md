@@ -40,4 +40,4 @@ The GeoJSON Summary includes all reports that  goes back 100+ years.
 
 ---
 
-![Webpage_Preview](https://github.com/JNJJNJ/Project3/assets/162941137/273dcd8a-cdc2-4f7f-b234-08ad2d5fa9db)
+![Screenshot 2024-07-10 134835](https://github.com/JNJJNJ/Project3/assets/162941137/55e7faf0-215a-4236-9c87-9484da43c0ed)

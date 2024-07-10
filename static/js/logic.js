@@ -323,12 +323,16 @@ dataset.then(function (data) {
     }
  }
 
+
+ // Summary output
  function make_legend(){
     let legend = L.DomUtil.create("div", "legend")
 
     htmlStr = '<b>Number of sightings:</b> ' + sightingsCount + '<br /><br />'
-    for(i=0;i<100;i++){
-        rand = getRandomInt(0, sightingSummary.length)
+    maxShow = (sightingsCount < 100) ? sightingsCount : 100;
+    for(i=0;i<maxShow;i++){
+        rand = i
+        if(maxShow > 100){rand = getRandomInt(0, sightingsCount)}
         htmlStr += '<b>' + sightingSummary[rand].Date + ': ' +
         sightingSummary[rand].City + ',' + 
         sightingSummary[rand].State + '</b><br />' +
@@ -340,13 +344,15 @@ dataset.then(function (data) {
     return legend;
 }
 
+// return random integer
 function getRandomInt(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
   }
 
-// Leaflet layer for the Summary legend
+
+// Leaflet layer for the Summary output
 let legend = L.control({position: "bottomright"});
 function add_legend(map, reload){
     if(reload){
